@@ -1,0 +1,11 @@
+﻿@using CgTest.CategorySupport
+@using CgTest.RoutingSupport
+
+<p>Kategorier:</p>
+
+<ul>
+    @foreach(var category in CategoryRepository.GetAll())
+    {
+        <li><a href="@UrlProvider.GetUrl(category)">@category.Name</a></li>
+    }
+</ul>

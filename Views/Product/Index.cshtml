@@ -1,0 +1,33 @@
+﻿@using CgTest.CategorySupport;
+@using CgTest.RoutingSupport
+
+@model CgTest.ProductSupport.Product
+
+<h1>@Model.Name (<a href="/Admin">Edit</a>)</h1>
+
+@{ 
+    var category = CategoryRepository.GetAll().FirstOrDefault(c => c.Id == Model.CategoryId);
+}
+
+<table>
+    <tr>
+        <th>Artikelnr</th>
+        <td>@Model.ArticleNo</td>
+    </tr>
+    <tr>
+        <th>Namn</th>
+        <td>@Model.Name</td>
+    </tr>
+    <tr>
+        <th>Kategori</th>
+        <td><a href="@UrlProvider.GetUrl(category)">@category.Name</a></td>
+    </tr>
+    <tr>
+        <th>Beskrivning</th>
+        <td>@Model.Description</td>
+    </tr>
+    <tr>
+        <th>Pris</th>
+        <td>@Model.Price</td>
+    </tr>
+</table>
